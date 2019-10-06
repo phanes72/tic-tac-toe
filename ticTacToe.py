@@ -1,6 +1,7 @@
 from easyAI import TwoPlayersGame, AI_Player, Negamax
 from easyAI.Player import Human_Player
 
+
 class GameController(TwoPlayersGame):
     def __init__(self, players):
         # Define the players
@@ -23,8 +24,8 @@ class GameController(TwoPlayersGame):
     # Does the opponent have three in a line?
     def loss_condition(self):
         possible_combinations = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
-        return any ([all ([(self.board[i-1] == self.nopponent)
-            for i in combination]) for combination in possible_combinations])
+        return any([all([(self.board[i - 1] == self.nopponent)
+                         for i in combination]) for combination in possible_combinations])
 
     # Check if the game is over
     def is_over(self):
@@ -32,8 +33,8 @@ class GameController(TwoPlayersGame):
 
     # Show current position
     def show(self):
-        print('\n'+'\n'.join([' '.join([['. ', 'O', 'X'][self.board[3*j + i]]
-                                        for i in range(3)]) for j in range(3)]))
+        print('\n' + '\n'.join([' '.join([['. ', 'O', 'X'][self.board[3 * j + i]]
+                                          for i in range(3)]) for j in range(3)]))
 
     # Compute the score
     def scoring(self):
